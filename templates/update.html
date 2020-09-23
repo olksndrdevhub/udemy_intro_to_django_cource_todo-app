@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <section>
+        <center>
+            <form action="{% url 'update' todo_id%}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="todo">
+                <input type="submit" value="Update" name="update">
+            </form>
+        </center>
+    </section>
+{% endblock content %}

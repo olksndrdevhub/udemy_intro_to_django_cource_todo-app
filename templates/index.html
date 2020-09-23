@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div>
+        <center>
+            <pre>
+                {% if todos %}
+                    <h3>Your Todos:</h3>
+                    {% for todo in todos %}
+                    <form action="{% url 'delete' todo.id %}" method="POST">
+                        {% csrf_token %}
+                        <li>
+                            {{todo}} | {{todo.datePublished}} | {% if todo.is_complete %}Completed!{% else %}In progress...{% endif %} | <input type="submit" value="Delete" name="delete"> <input type="submit" value="Check Completed" name="complete"> <input type="submit" value="Update" name="update">
+                        </li>
+                    </form>
+                    {% endfor %}
+                {% else %}
+                    <h3>No Todos...</h3>
+                {% endif %}
+            </pre>    
+        </center>
+    </div>
+
+    <section>
+        <center>
+            <form action="{% url 'index' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="todo">
+                <input type="submit" value="Submit" name="submit">
+            </form>
+        </center>
+    </section>
+
+{% endblock content %}

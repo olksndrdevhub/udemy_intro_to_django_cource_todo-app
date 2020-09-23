@@ -1,0 +1,14 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+.nav{
+    background-color: rgb(26, 25, 106);
+    background: rgb(26, 25, 106);
+    color: white;
+    padding: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
